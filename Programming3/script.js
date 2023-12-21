@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
     const canvas = document.getElementById("oceanCanvas");
     const ctx = canvas.getContext("2d");
+    // Load background image
+    const backgroundImage = new Image();
+    backgroundImage.src = 'my_ocean.png';
 
     // Fish constructor
     function Fish(x, y) {
@@ -69,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
+        ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
 
         for (let i = 0; i < fishes.length; i++) {
             fishes[i].update();
